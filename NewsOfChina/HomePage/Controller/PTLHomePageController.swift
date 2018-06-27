@@ -94,7 +94,8 @@ extension PTLHomePageController {
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
             
-            let arr: NSArray = NSArray.yy_modelArray(with: PTLHomePageModel.classForCoder(), json: result["list"] ?? [])! as NSArray
+            // class: xxx.self
+            let arr: NSArray = NSArray.yy_modelArray(with: PTLHomePageModel.self, json: result["list"] ?? [])! as NSArray
             if isLoadingNewData! {
                 self.dataSource.removeAllObjects()
                 self.dataSource = arr.mutableCopy() as! NSMutableArray
